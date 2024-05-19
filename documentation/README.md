@@ -22,8 +22,19 @@
 
 Produce high quality data for Airbnb listings from Boston, MA. This data could help a data analyst to understand the current short-term rental market, providing insights that will guide the expansion of a real state company or individual.
 
+
 ### **Process**
 
-I stored the data locally. Later, created a PostgreSQL database with several tables representing the database schema. Finally, several techniques and methods were applied to ensure data quality.
+
+I stored the data locally, then created a PostgreSQL database with multiple tables representing different elements of the data. Finally, I applied several techniques and methods to ensure data quality.
 
 ### **Highlights**
+
+
+## **Introduction**
+
+This project aims to generate high-quality data using different techniques and methods. This data can assist a data analyst in understanding the current short-term rental market to guide the expansion of a real state company or individual.
+
+I have selected PostgreSQL as my primary tool to take advantage of its features and showcase my expertise.
+
+The project methodology is based on CRISP-DM (Cross-Industry Standard Process for Data Mining), incorporating only the components that aligns with project's objective.
