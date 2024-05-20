@@ -49,7 +49,9 @@ The project methodology is based on CRISP-DM (Cross-Industry Standard Process fo
 <a id='initial-data-collection'></a>
 ### Initial data collection
 
-The collected data is in .csv format. It contains 7 files representing different aspects of the data. Three of them represent detailed data about listings (`listings.csv`) including their availability in the next 12 months (`calendar.csv`), and past reviews (`reviews.csv`). The next three, represents a summarized version of the detailed data. The remaining two, represents geographical information for the neighborhoods (`neighbourhoods.csv`, `neighbourhoods.geojson`). I select only the first three files containing data that align with the project’s objective. I gathered the data from Inside Airbnb [2] manually.
+
+I collected the data from Inside Airbnb [2], a mission-driven project that provides data about Airbnb's listings for the upcoming 12 months, which is updated quarterly. I specifically chose data from Boston, MA, downloaded it manually, and saved it locally.
+
 
 <a id='references'></a>
 ## References
