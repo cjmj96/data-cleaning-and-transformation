@@ -10,6 +10,7 @@
 - [Introduction](#introduction)
 - [Data understanding](#data-understanding)
 	- [Initial data collection](#initial-data-collection)
+	- [Data description](#data-description)
 - [Data preparation](#data-preparation)
 - [Results](#results)
 - [Conclusion](#conclusion)
@@ -51,6 +52,18 @@ The project methodology is based on CRISP-DM (Cross-Industry Standard Process fo
 
 
 I collected the data from Inside Airbnb [2], a mission-driven project that provides data about Airbnb's listings for the upcoming 12 months, which is updated quarterly. I specifically chose data from Boston, MA, downloaded it manually, and saved it locally.
+
+
+<a id='data-description'></a>
+### Data description
+
+The Boston Airbnb data is stored in .csv format. It contains 7 files representing different aspects of the data. Three of them represent detailed data about listings (`listings.csv`) including their availability in the next 12 months (`calendar.csv`), and past reviews (`reviews.csv`). The next three, represents a summarized version of the detailed data. The remaining two, represents geographical information for the neighborhoods (`neighbourhoods.csv`, `neighbourhoods.geojson`). I select only the first three files containing data that align with the project’s objective.
+
+The files have a varying numbers of fields and observations. `listings.csv` has 75 fields and 4,261 observations. `calendar.csv` contains 7 fields and 1,554,256 observations. And, `reviews.csv` file contains 6 fields and 186,496 observations.
+
+
+
+
 
 
 <a id='references'></a>
