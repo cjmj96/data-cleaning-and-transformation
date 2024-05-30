@@ -11,6 +11,7 @@
 - [Data understanding](#data-understanding)
 	- [Initial data collection](#initial-data-collection)
 	- [Data description](#data-description)
+	- [Data exploration](#data-exploration)
 - [Data preparation](#data-preparation)
 - [Results](#results)
 - [Conclusion](#conclusion)
@@ -172,6 +173,23 @@ The data from the source was organized into tables within a robust database, est
 ![erd-boston-airbnb-data](./erd-boston-airbnb-data.png).
 
 
+<a id='data-exploration'></a>
+### Data exploration
+
+The dataset has 4102 active listings as of March 24, 2024. They are distributed across 121 neighborhoods and belong to 1,228 hosts. Of these hosts, 522 (42.50%) are classified as superhosts, while 706 (57.49%) are regular hosts. It's important to note that one factor to consider when evaluating a property for short-term rental investment is to avoid locations with a lot of professional hosts [3]. There are 28 of them representing 2.04% of all hosts, and they own 42.63% of listings.
+
+If we look more into how properties are set up, most of them are entire rental units (49.26%). These mostly accommodate two guests (42.05%), have one bathroom (61.18%), one bed (49.24%). The top five popular amenities, present in more than 90% of listings, include smoke alarms, carbon monoxide alarms, Wifi, essentials, and hot water present.
+
+
+The dataset exhibits promising characteristics for a good short-term investment. These attributes could lead to a higher annual revenue by maintaining superhost status. By retaining this status, we may have a 13% higher annual revenue potential than regular hosts [4]. In the past year, Boston's superhost received an average of 21 reviews, with an average review score of 4.86 and an average response rate of over 90%. These criteria are crucial for maintaining superhost status [5].
+
+
+Superhosts and regular hosts have similar average nightly rates. The average nightly rates are 194.05 for superhosts and 186.43 for regular hosts.
+
+
+I explored the connection between quantitative and qualitative variables and the nightly rate, given that this metric can be valuable for calculating key performance indicators (KPI). The analysis revealed a moderate positive correlation (0.5 < r < 0.7) between price and the number of beds, bedrooms, bathrooms, and accommodations. This indicates that as the count of these variables increases, the nightly rate also increases.
+
+
 
 <a id='references'></a>
 ## References
@@ -180,3 +198,9 @@ The data from the source was organized into tables within a robust database, est
 ‌
 
 [2] Airbnb, “Inside Airbnb” Inside Airbnb. https://insideairbnb.com/ (accessed May 14, 2024).
+
+[3] Airdna, “How to find a good short-term rental investment location | AirDNA,” airdna. https://www.airdna.co/guides/find-good-short-term-rental-locations (accessed May 30, 2024).
+
+[4] Airdna, "Airbnb Superhost: How to Become One in 2024”, AirDNA - Short-Term Vacation Rental Data and Analytics, Apr. 7, 2024. https://www.airdna.co/blog/airbnb_superhost_status (accessed May 30, 2024).
+
+[5] Airbnb, “How to become a Superhost - Airbnb Help Center,” Airbnb. https://www.airbnb.com/help/article/829 (accessed May 30, 2024)
