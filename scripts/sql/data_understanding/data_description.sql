@@ -5,7 +5,7 @@ FROM information_schema.columns
 WHERE table_schema = 'public'
 AND table_name = 'listing';
 
-List first 5 observations of listing table
+--  List first 5 observations of listing table
 SELECT *
 FROM listing
 LIMIT 5;
@@ -19,8 +19,8 @@ SELECT column_name, data_type
 FROM information_schema.columns
 WHERE table_schema = 'public'
 AND table_name = 'calendar';
---
-List first 5 observations of calendar table
+
+-- List first 5 observations of calendar table
 SELECT *
 FROM calendar
 LIMIT 5;
