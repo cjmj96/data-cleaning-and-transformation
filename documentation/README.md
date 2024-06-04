@@ -15,6 +15,7 @@
 	- [Data quality](#data-quality)
 - [Data preparation](#data-preparation)
 	- [Format data](#format-data)
+	- [Data selection](#data-selection)
 - [Results](#results)
 - [Conclusion](#conclusion)
 - [References](#references)
@@ -197,8 +198,10 @@ I explored the connection between quantitative and qualitative variables and the
 The dataset present some problems:
 
 1. Inappropiate data types: Present in every table.
-2. Blank values: Present in every table.
-3. Missing values: Present in the listing and calendar table. Their presence varies from low, high or absolute degree in some variables.
+2. Outliers: Present in the listing and calendar table.
+3. Mistyped names: Present in the listing table.
+4. Blank values: Present in every table.
+5. Missing values: Present in the listing and calendar table. Their presence varies from low, high or absolute degree in some variables.
 
 <a id='data-preparation'></a>
 ## **Data preparation**
@@ -209,109 +212,173 @@ The dataset present some problems:
 
 After setting an appropiate format for the data. The `listing` table has now appropiate format for every column as seen next.
 
-| column_name                      | data_type          |
-|----------------------------------|--------------------|
-| listing_url                      | text               |
-| source                           | text               |
-| name                             | text               |
-| description                      | text               |
-| neighborhood_overview            | text               |
-| picture_url                      | text               |
-| host_url                         | text               |
-| host_name                        | text               |
-| host_location                    | text               |
-| host_about                       | text               |
-| host_response_time               | text               |
-| host_thumbnail_url               | text               |
-| host_picture_url                 | text               |
-| host_neighbourhood               | text               |
-| host_listings_count              | integer            |
-| host_total_listings_count        | integer            |
-| neighbourhood                    | text               |
-| neighbourhood_cleansed           | text               |
-| neighbourhood_group_cleansed     | text               |
-| latitude                         | double precision   |
-| longitude                        | double precision   |
-| property_type                    | text               |
-| room_type                        | text               |
-| accommodates                     | integer            |
-| bathrooms                        | double precision   |
-| bathrooms_text                   | text               |
-| bedrooms                         | integer            |
-| beds                             | integer            |
-| minimum_nights                   | integer            |
-| maximum_nights                   | integer            |
-| minimum_minimum_nights           | integer            |
-| maximum_minimum_nights           | integer            |
-| minimum_maximum_nights           | integer            |
-| maximum_maximum_nights           | integer            |
-| minimum_nights_avg_ntm           | double precision   |
-| maximum_nights_avg_ntm           | double precision   |
-| calendar_updated                 | text               |
-| has_availability                 | text               |
-| availability_30                  | integer            |
-| availability_60                  | integer            |
-| availability_90                  | integer            |
-| availability_365                 | integer            |
-| calendar_last_scraped            | text               |
-| number_of_reviews                | integer            |
-| number_of_reviews_ltm            | integer            |
-| number_of_reviews_l30d           | integer            |
-| first_review                     | text               |
-| last_review                      | text               |
-| review_scores_rating             | double precision   |
-| review_scores_accuracy           | double precision   |
-| review_scores_cleanliness        | double precision   |
-| review_scores_checkin            | double precision   |
-| review_scores_communication      | double precision   |
-| review_scores_location           | double precision   |
-| review_scores_value              | double precision   |
-| license                          | text               |
-| instant_bookable                 | text               |
-| calculated_host_listings_count   | integer            |
+| column_name                     | data_type      |
+| ------------------------------- | -------------- |
+| id                              | bigint         |
+| listing_url                     | text           |
+| scrape_id                       | bigint         |
+| last_scraped                    | date           |
+| source                          | text           |
+| name                            | text           |
+| description                     | text           |
+| neighborhood_overview           | text           |
+| picture_url                     | text           |
+| host_id                         | bigint         |
+| host_url                        | text           |
+| host_name                       | text           |
+| host_since                      | date           |
+| host_location                   | text           |
+| host_about                      | text           |
+| host_response_time              | text           |
+| host_thumbnail_url             | text           |
+| host_picture_url               | text           |
+| host_neighbourhood              | text           |
+| host_listings_count            | integer        |
+| host_total_listings_count      | integer        |
+| host_verifications              | ARRAY          |
+| neighbourhood                    | text           |
+| neighbourhood_cleansed          | text           |
+| neighbourhood_group_cleansed    | text           |
+| latitude                        | double precision |
+| longitude                       | double precision |
+| property_type                   | text           |
+| room_type                       | text           |
+| accommodates                   | integer        |
+| bathrooms                       | double precision |
+| bathrooms_text                  | text           |
+| bedrooms                        | integer        |
+| beds                            | integer        |
+| amenities                       | ARRAY          |
+| price                           | numeric        |
+| minimum_nights                  | integer        |
+| maximum_nights                  | integer        |
+| minimum_minimum_nights          | integer        |
+| maximum_minimum_nights          | integer        |
+| minimum_maximum_nights          | integer        |
+| maximum_maximum_nights          | integer        |
+| minimum_nights_avg_ntm          | double precision |
+| maximum_nights_avg_ntm          | double precision |
+| calendar_updated                | date           |
+| availability_30                 | integer        |
+| availability_60                 | integer        |
+| availability_90                 | integer        |
+| availability_365                | integer        |
+| calendar_last_scraped           | date           |
+| number_of_reviews               | integer        |
+| number_of_reviews_ltm           | integer        |
+| number_of_reviews_l30d          | integer        |
+| first_review                     | date           |
+| last_review                      | date           |
+| review_scores_rating            | double precision |
+| review_scores_accuracy           | double precision |
+| review_scores_cleanliness        | double precision |
+| review_scores_checkin           | double precision |
+| review_scores_communication     | double precision |
+| review_scores_location          | double precision |
+| review_scores_value             | double precision |
+| license                         | text           |
+| calculated_host_listings_count  | integer        |
 | calculated_host_listings_count_entire_homes | integer |
 | calculated_host_listings_count_private_rooms | integer |
-| calculated_host_listings_count_shared_rooms  | integer |
-| reviews_per_month                | double precision   |
-| host_response_rate               | numeric            |
-| host_acceptance_rate             | numeric            |
-| host_is_superhost                | boolean            |
-| host_verifications               | ARRAY              |
-| host_has_profile_pic             | boolean            |
-| host_identity_verified           | boolean            |
-| amenities                        | ARRAY              |
-| price                            | double precision   |
-| id                               | bigint             |
-| scrape_id                        | bigint             |
-| last_scraped                     | date               |
-| host_id                          | bigint             |
-| listing_id                       | bigint             |
-| host_since                       | date               |
+| calculated_host_listings_count_shared_rooms | integer |
+| reviews_per_month               | double precision |
+| host_response_rate              | numeric        |
+| host_acceptance_rate            | numeric        |
+| host_is_superhost               | boolean        |
+| host_has_profile_pic            | boolean        |
+| host_identity_verified          | boolean        |
+| has_availability                | boolean        |
+| instant_bookable                | boolean        |
 
- The `calendar` table has now appropiate format for every column as seen next.
+The `calendar` table has now appropiate format for every column as seen next.
 
-| column_name       | data_type          |
-|-------------------|--------------------|
-| adjusted_price    | text               |
-| listing_id        | bigint             |
-| price             | double precision   |
-| available         | boolean            |
-| minimum_nights    | integer            |
-| maximum_nights    | integer            |
-| date              | date               |
+| column_name | data_type |
+|-------------|-----------|
+| listing_id  | bigint    |
+| date        | date      |
+| price       | numeric   |
+| adjusted_price | text     |
+| minimum_nights | integer  |
+| maximum_nights | integer  |
+| available   | boolean   |
 
 
  The `review` table has now appropiate format for every column as seen next.
 
-| column_name    | data_type |
-|---------------|-----------|
-| reviewer_name | text      |
-| comments      | text      |
-| listing_id    | bigint    |
-| id            | bigint    |
-| date          | date      |
-| reviewer_id   | bigint    |
+| column_name | data_type |
+|-------------|-----------|
+| listing_id  | bigint    |
+| id          | bigint    |
+| date        | date      |
+| reviewer_id | bigint    |
+| reviewer_name | text     |
+| comments    | text     |
 
+
+<a id='data-selection'></a>
+## **Data selection**
+
+I carefully selected only the most relevant features that match the project's objective. As a result, I reduced the number of columns or rows in all the tables. The listing table decreased from 4261 to 2614 observations and 75 to 37 columns. The calendar table only decreased at the column level, going from 7 down to 4 columns. Similarly, the review table went from 6 to 4 columns.
+
+The selected columns for the listing table are the following:
+
+| column_name        | data_type     |
+|--------------------|---------------|
+| id                 | bigint        |
+| name               | text          |
+| description        | text          |
+| picture_url        | text          |
+| host_id            | bigint        |
+| host_url           | text          |
+| host_name          | text          |
+| host_about         | text          |
+| host_response_time | text          |
+| host_picture_url  | text          |
+| host_neighbourhood | text          |
+| host_listings_count | integer      |
+| host_total_listings_count | integer |
+| latitude           | double precision |
+| longitude          | double precision |
+| property_type      | text          |
+| room_type          | text          |
+| accommodates       | integer       |
+| bathrooms          | double precision |
+| bedrooms           | integer       |
+| beds               | integer       |
+| amenities          | ARRAY         |
+| price              | numeric       |
+| minimum_nights     | integer       |
+| maximum_nights     | integer       |
+| calendar_last_scraped | date |
+| number_of_reviews  | integer       |
+| number_of_reviews_ltm | integer |
+| number_of_reviews_l30d | integer |
+| first_review       | date          |
+| last_review        | date          |
+| review_scores_rating | double precision |
+| reviews_per_month  | double precision |
+| host_response_rate | numeric       |
+| host_acceptance_rate | numeric |
+| host_is_superhost  | boolean       |
+| has_availability   | boolean       |
+
+The selected columns for the calendar table are the following:
+
+ column_name | data_type
+-------------+-----------
+ listing_id  | bigint
+ date        | date
+ price       | numeric
+ available   | boolean
+
+And the selected columns for the review table are the following:
+
+| column_name | data_type |
+|-------------|-----------|
+| listing_id  | bigint    |
+| id          | bigint    |
+| date        | date      |
+| reviewer_id | bigint    |
 
 
 <a id='references'></a>
