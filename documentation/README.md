@@ -14,7 +14,7 @@
 	- [Data exploration](#data-exploration)
 	- [Data quality](#data-quality)
 - [Data preparation](#data-preparation)
-	- [Format data](#format-data)
+	- [Change columns to their appropriate data types](#change-columns-to-their-appropriate-data-type)
 	- [Data selection](#data-selection)
 - [Results](#results)
 - [Conclusion](#conclusion)
@@ -207,10 +207,10 @@ The dataset present some problems:
 ## **Data preparation**
 
 
-<a id='format-data'></a>
-## **Format data**
+<a id='change-columns-to-their-appropriate-data-types'></a>
+## **Change columns to their appropriate data types
 
-After setting an appropiate format for the data. The `listing` table has now appropiate format for every column as seen next.
+After setting an appropiate format for the data. The `listing` table has the following data types for each column.
 
 | column_name                     | data_type      |
 | ------------------------------- | -------------- |
@@ -290,7 +290,7 @@ After setting an appropiate format for the data. The `listing` table has now app
 | has_availability                | boolean        |
 | instant_bookable                | boolean        |
 
-The `calendar` table has now appropiate format for every column as seen next.
+The `calendar` table has now appropiate data types for every column as seen next.
 
 | column_name | data_type |
 |-------------|-----------|
@@ -303,7 +303,7 @@ The `calendar` table has now appropiate format for every column as seen next.
 | available   | boolean   |
 
 
- The `review` table has now appropiate format for every column as seen next.
+ The `review` table has now appropiate data types for every column as seen next.
 
 | column_name | data_type |
 |-------------|-----------|
