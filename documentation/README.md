@@ -12,7 +12,7 @@
 	- [Initial data collection](#initial-data-collection)
 	- [Data description](#data-description)
 	- [Data exploration](#data-exploration)
-	- [Data quality](#data-quality)
+	- [Verify data quality](#verify-data-quality)
 - [Data preparation](#data-preparation)
 	- [Change columns to their appropriate data types](#change-columns-to-their-appropriate-data-type)
 	- [Data selection](#data-selection)
@@ -192,8 +192,8 @@ Superhosts and regular hosts have similar average nightly rates. The average nig
 
 I explored the connection between quantitative and qualitative variables and the nightly rate, given that this metric can be valuable for calculating key performance indicators (KPI). The analysis revealed a moderate positive correlation (0.5 < r < 0.7) between price and the number of beds, bedrooms, bathrooms, and accommodations. This indicates that as the count of these variables increases, the nightly rate also increases.
 
-<a id='data-quality'></a>
-### Data quality
+<a id='verify-data-quality'></a>
+### Verify data quality
 
 The dataset present some problems:
 
