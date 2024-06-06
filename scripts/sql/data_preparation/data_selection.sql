@@ -39,6 +39,11 @@ WHERE
 
 -- Filter data across columns (listing table)
 ALTER TABLE listing_prepared_filtered
+DROP COLUMN description,
+DROP COLUMN picture_url,
+DROP COLUMN host_url,
+DROP COLUMN host_about,
+DROP COLUMN host_picture_url,
 DROP COLUMN listing_url,
 DROP COLUMN last_scraped,
 DROP COLUMN calendar_updated,
@@ -103,7 +108,7 @@ FROM review_prepared
 WHERE
   (date BETWEEN '2008-08-01' AND '2024-03-24');
 
--- Filter data across columns (review_prepared_filtered table)
+Filter data across columns (review_prepared_filtered table)
 ALTER TABLE review_prepared_filtered
 DROP COLUMN reviewer_name,
 DROP COLUMN comments;

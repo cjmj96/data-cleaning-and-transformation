@@ -318,7 +318,7 @@ The `calendar` table has now appropiate data types for every column as seen next
 <a id='data-selection'></a>
 ## **Data selection**
 
-I carefully selected only the most relevant features that match the project's objective. As a result, I reduced the number of columns or rows in all the tables. The listing table decreased from 4261 to 2614 observations and 75 to 37 columns. The calendar table only decreased at the column level, going from 7 down to 4 columns. Similarly, the review table went from 6 to 4 columns.
+I carefully selected only the most relevant features that match the project's objective. As a result, I reduced the number of columns or rows in all the tables. The listing table decreased from 4261 to 2614 observations and 75 to 32 columns. The calendar table only decreased at the column level, going from 7 down to 4 columns. Similarly, the review table went from 6 to 4 columns.
 
 The selected columns for the listing table are the following:
 
@@ -326,14 +326,9 @@ The selected columns for the listing table are the following:
 |--------------------|---------------|
 | id                 | bigint        |
 | name               | text          |
-| description        | text          |
-| picture_url        | text          |
 | host_id            | bigint        |
-| host_url           | text          |
 | host_name          | text          |
-| host_about         | text          |
 | host_response_time | text          |
-| host_picture_url  | text          |
 | host_neighbourhood | text          |
 | host_listings_count | integer      |
 | host_total_listings_count | integer |
