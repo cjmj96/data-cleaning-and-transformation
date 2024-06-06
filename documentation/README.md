@@ -208,7 +208,7 @@ The dataset present some problems:
 
 
 <a id='change-columns-to-their-appropriate-data-types'></a>
-## **Change columns to their appropriate data types
+### **Change columns to their appropriate data types
 
 After setting an appropiate format for the data. The `listing` table has the following data types for each column.
 
@@ -316,9 +316,9 @@ The `calendar` table has now appropiate data types for every column as seen next
 
 
 <a id='data-selection'></a>
-## **Data selection**
+### **Data selection**
 
-I carefully selected only the most relevant features that match the project's objective. As a result, I reduced the number of columns or rows in all the tables. The listing table decreased from 4261 to 2614 observations and 75 to 32 columns. The calendar table only decreased at the column level, going from 7 down to 4 columns. Similarly, the review table went from 6 to 4 columns.
+I carefully selected only the most relevant features that match the project's objective. As a result, I reduced the number of columns in all the tables. The listing table decreased at the column level, going from 75 to 32 columns. Similarly, the calendar table only decreased at the column level, going from 7 down to 4 columns. In the same way, the review table went from 6 to 4 columns.
 
 The selected columns for the listing table are the following:
 
@@ -374,6 +374,9 @@ And the selected columns for the review table are the following:
 | id          | bigint    |
 | date        | date      |
 | reviewer_id | bigint    |
+
+
+
 
 
 <a id='references'></a>
