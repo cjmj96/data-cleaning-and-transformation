@@ -16,6 +16,7 @@
 - [Data preparation](#data-preparation)
 	- [Change columns to their appropriate data types](#change-columns-to-their-appropriate-data-type)
 	- [Data selection](#data-selection)
+	- [Data cleaning](#data-cleaning)
 - [Results](#results)
 - [Conclusion](#conclusion)
 - [References](#references)
@@ -199,7 +200,7 @@ The dataset present some problems:
 
 1. Inappropiate data types: Present in every table.
 2. Outliers: Present in the listing and calendar table.
-3. Mistyped names: Present in the listing table.
+3. Invalid values: Present in the listing table.
 4. Blank values: Present in every table.
 5. Missing values: Present in the listing and calendar table. Their presence varies from low, high or absolute degree in some variables.
 
@@ -359,12 +360,12 @@ The selected columns for the listing table are the following:
 
 The selected columns for the calendar table are the following:
 
- column_name | data_type
+| column_name | data_type |
 -------------+-----------
- listing_id  | bigint
- date        | date
- price       | numeric
- available   | boolean
+| listing_id  | bigint    |
+| date        | date      |
+| price       | numeric   |
+| available   | boolean   |
 
 And the selected columns for the review table are the following:
 
@@ -376,8 +377,19 @@ And the selected columns for the review table are the following:
 | reviewer_id | bigint    |
 
 
+<a id='data-cleaning'></a>
+### **Data cleaning**
+
+All the errors presents in the data were successfully fixed to ensure data quality. The followed methodology is the one proposed by Ilyas et al. [6]. This methodology ensures that relevant dimensions of data meets the requirements for our specific situation. The dimension selection process was done using the DAMA approach. The dimensions are the following: currency, validity, accuracy, uniqueness, and completeness.  These are listed by order of priority to achieve our objective and their cost-benefit ratio in the error detection and reparation steps [7].
 
 
+The technique used in verification of dimension of currency was ruled-based data cleaning. The `date` column in the calendar and review table was crucial to do this.
+
+The technique used in verification of dimensions on the validity and accuracy of data was rule-based and outlier detection. Most affected was the listing table, containing 56.77% fewer observations, amounting to 1,842. On this particular table, what was adjusted was the `host_response_time`, replacing the 'N/A' by 'NULL' values. This also happens relative to column `host_neighbourhood`, where there existed 124 different neighbourhoods and yet there are only 24. Neighborhood identification used the approximate spatial coordinates of the listing data [9]. The remaining columns in this table and other columns in remaining tables used simple rule-based and outlier detection techniques. As such, the calendar table was reduced by 9.51% with 1,406,431 observations while the review table remained the same with 186,496 observations.
+
+The dataset doesn't present duplicate entries. The primary key has been effective in ensuring each observation is unique, appearing only once in the dataset.
+
+Data completeness was checked using the complete case analysis method. There were missing data in the listing table, particularly in two columns: `host_neighbourhood` and `host_is_superhost`, with 2% and 3% of the observations, respectively. The column `host_neighbourhood` was completed according to the neighborhood identification method that would be used beforehand. A column treating `host_is_superhost`` with complete case analysis was done due to the low amount of missing values. It now contains 1,805 observations, which are listings—an decrease of 2 percent.
 
 <a id='references'></a>
 ## References
@@ -392,3 +404,12 @@ And the selected columns for the review table are the following:
 [4] Airdna, "Airbnb Superhost: How to Become One in 2024”, AirDNA - Short-Term Vacation Rental Data and Analytics, Apr. 7, 2024. https://www.airdna.co/blog/airbnb_superhost_status (accessed May 30, 2024).
 
 [5] Airbnb, “How to become a Superhost - Airbnb Help Center,” Airbnb. https://www.airbnb.com/help/article/829 (accessed May 30, 2024)
+
+[6] I. F. Ilyas and X. Chu, “Data Cleaning,” Jul. 2019, doi: https://doi.org/10.1145/3310205.
+
+[7] DAMA, “Dimensions of Data Quality | Stichting DAMA NL.” https://dama-nl.org/dimensions-of-data-quality-en/ (accessed June 9, 2024)
+
+[8] City of Boston, "Neighborhoods," boston.gov, Oct. 13, 2017. https://www.boston.gov/neighborhoods (accessed June 18, 2024)
+
+[9] Inside Airbnb, “Data Assumptions,” Inside Airbnb. https://insideairbnb.com/data-assumptions/ (accessed June 19, 2024).
+‌

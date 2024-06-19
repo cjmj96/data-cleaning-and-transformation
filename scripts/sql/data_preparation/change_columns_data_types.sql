@@ -17,22 +17,22 @@ FROM review;
 ALTER TABLE listing_prepared
 ALTER COLUMN id TYPE BIGINT USING id::BIGINT;
 --
--- Change data type of scrape_id from the listing_prepared table
+--  Change data type of scrape_id from the listing_prepared table
 ALTER TABLE listing_prepared
 ALTER COLUMN scrape_id TYPE BIGINT USING id::BIGINT;
 --
--- Change data type of host_id from the listing_prepared table
+--  Change data type of host_id from the listing_prepared table
 ALTER TABLE listing_prepared
 ALTER COLUMN host_id TYPE BIGINT USING host_id::BIGINT;
 --
--- Change data type of last_scraped from the listing_prepared table
+--  Change data type of last_scraped from the listing_prepared table
 ALTER TABLE listing_prepared
 ALTER COLUMN last_scraped TYPE DATE USING (last_scraped::DATE);
 --
--- Change data type of host_since from the listing_prepared table
+--  Change data type of host_since from the listing_prepared table
 ALTER TABLE listing_prepared
 ALTER COLUMN host_since TYPE DATE USING (host_since::DATE);
---
+
 --  Change data type of host_response_rate from the listing_prepare table
 --  Step 1: Add a new column with the appropriate data type (numeric)
 ALTER TABLE listing_prepared ADD COLUMN new_host_response_rate NUMERIC;
@@ -68,7 +68,6 @@ ALTER TABLE listing_prepared DROP COLUMN host_acceptance_rate;
 ALTER TABLE listing_prepared RENAME COLUMN new_host_acceptance_rate TO host_acceptance_rate;
 --
 --  Change data type of host_is_superhost from the listing_prepare table
---
 --  Step 1: Add a new NUMERIC (BOOLEAN) column
 ALTER TABLE listing_prepared ADD COLUMN new_host_is_superhost BOOLEAN;
 --
@@ -94,7 +93,6 @@ TYPE TEXT[]
 USING ARRAY[REPLACE(REPLACE(host_verifications, '[', ''), ']', '')];
 --
 --  Change data type of host_has_profile_pic from the listing_prepare table
---
 --  Step 1: Add a new NUMERIC (BOOLEAN) column
 ALTER TABLE listing_prepared ADD COLUMN new_host_has_profile_pic BOOLEAN;
 --
@@ -114,7 +112,6 @@ ALTER TABLE listing_prepared DROP COLUMN host_has_profile_pic;
 ALTER TABLE listing_prepared RENAME COLUMN new_host_has_profile_pic TO host_has_profile_pic;
 --
 --  Change data type of host_identity_verified from the listing_prepare table
---
 --  Step 1: Add a new NUMERIC (BOOLEAN) column
 ALTER TABLE listing_prepared ADD COLUMN new_host_identity_verified BOOLEAN;
 --
@@ -182,7 +179,6 @@ ALTER TABLE listing_prepared
 ALTER COLUMN last_review TYPE DATE USING (last_review::DATE);
 --
 --  Change data type of instant_bookable from the listing_prepare table
---
 --  Step 1: Add a new NUMERIC (BOOLEAN) column
 ALTER TABLE listing_prepared ADD COLUMN new_instant_bookable BOOLEAN;
 --
@@ -200,17 +196,16 @@ ALTER TABLE listing_prepared DROP COLUMN instant_bookable;
 --
 --  Step 4: Rename the new column to the original name
 ALTER TABLE listing_prepared RENAME COLUMN new_instant_bookable TO instant_bookable;
-
+--
 --  Change data type of listing_id from the calendar_prepared table
 ALTER TABLE calendar_prepared
 ALTER COLUMN listing_id TYPE BIGINT USING listing_id::BIGINT;
-
+--
 --  Change data type of date from the calendar table
 ALTER TABLE calendar_prepared
 ALTER COLUMN date TYPE DATE USING (date::DATE);
-
+--
 --  Change data type of available from the calendar_prepared table
-
 --  Step 1: Add a new NUMERIC (BOOLEAN) column
 ALTER TABLE calendar_prepared ADD COLUMN new_available BOOLEAN;
 --
@@ -228,25 +223,25 @@ ALTER TABLE calendar_prepared DROP COLUMN available;
 --
 --  Step 4: Rename the new column to the original name
 ALTER TABLE calendar_prepared RENAME COLUMN new_available TO available;
-
+--
 --  Change data type of price from the calendar_prepared table
 ALTER TABLE calendar_prepared
 	ALTER COLUMN price
 TYPE NUMERIC(10, 2)
 USING REPLACE(SUBSTR(price, 2), ',', '')::NUMERIC(10,2);
-
+--
 --  Change data type of listing_id from the review_prepared table
 ALTER TABLE review_prepared
 ALTER COLUMN listing_id TYPE BIGINT USING listing_id::BIGINT;
-
+--
 --  Change data type of id from the review_prepared table
 ALTER TABLE review_prepared
 ALTER COLUMN id TYPE BIGINT USING id::BIGINT;
-
+--
 -- Change data type of date from the calendar table
 ALTER TABLE review_prepared
 ALTER COLUMN date TYPE DATE USING (date::DATE);
-
+--
 --  Change data type of reviewer_id from the review_prepared table
 ALTER TABLE review_prepared
 ALTER COLUMN reviewer_id TYPE BIGINT USING reviewer_id::BIGINT;
