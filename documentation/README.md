@@ -174,7 +174,7 @@ The `reviews.csv` file only contain relevant information of past reviews for a p
 The data from the source was organized into tables within a robust database, establishing relationships between the various datasets. The following illustration (ERD) provides a representation of the database's structure.
 
 
-![erd-boston-airbnb-data](./erd-boston-airbnb-data.png).
+![erd-boston-airbnb-data](./erd-boston-airbnb-data.png)
 
 
 <a id='data-exploration'></a>
@@ -361,7 +361,7 @@ The selected columns for the listing table are the following:
 The selected columns for the calendar table are the following:
 
 | column_name | data_type |
--------------+-----------
+|-------------|-----------|
 | listing_id  | bigint    |
 | date        | date      |
 | price       | numeric   |
