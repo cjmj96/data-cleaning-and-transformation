@@ -17,7 +17,7 @@
 	- [Change columns to their appropriate data types](#change-columns-to-their-appropriate-data-type)
 	- [Data selection](#data-selection)
 	- [Data cleaning](#data-cleaning)
-- [Results](#results)
+	- [Data construction](#data-construction)
 - [Conclusion](#conclusion)
 - [References](#references)
 - [Appendix](#appendix)
@@ -361,7 +361,7 @@ The selected columns for the listing table are the following:
 The selected columns for the calendar table are the following:
 
 | column_name | data_type |
-|-------------|-----------|
+|-------------|---------------|
 | listing_id  | bigint    |
 | date        | date      |
 | price       | numeric   |
@@ -391,6 +391,19 @@ The dataset doesn't present duplicate entries. The primary key has been effectiv
 
 Data completeness was checked using the complete case analysis method. There were missing data in the listing table, particularly in two columns: `host_neighbourhood` and `host_is_superhost`, with 2% and 3% of the observations, respectively. The column `host_neighbourhood` was completed according to the neighborhood identification method that would be used beforehand. A column treating `host_is_superhost`` with complete case analysis was done due to the low amount of missing values. It now contains 1,805 observations, which are listings—an decrease of 2 percent.
 
+
+<a id='data-construction'></a>
+### **Data construction**
+
+I create a new column called `total_potential_revenue` derived from the amount of nights of the next year (calendar table) and nightly price (listing table). Other key perfomance indicators (KPI) like average daily rate (ADR), and occupancy rate weren't computed due to data limitations.
+
+
+<a id='conclusion'></a>
+## **Conclusion**
+
+Our data meet the requirements expressed as data dimensions, thereby ensuring data quality. I used a variety of techniques implemented on PostgreSQL to accomplish this. To ensure a more precise prescriptive analysis, it's crucial to incorporate other up-to-date data sources.
+
+
 <a id='references'></a>
 ## References
 
@@ -412,4 +425,3 @@ Data completeness was checked using the complete case analysis method. There wer
 [8] City of Boston, "Neighborhoods," boston.gov, Oct. 13, 2017. https://www.boston.gov/neighborhoods (accessed June 18, 2024)
 
 [9] Inside Airbnb, “Data Assumptions,” Inside Airbnb. https://insideairbnb.com/data-assumptions/ (accessed June 19, 2024).
-‌
