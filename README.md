@@ -1,4 +1,4 @@
-# data-cleaning-and-transformation
+# Data cleaning and transformation (Airbnb case study)
 
 This project aims to show SQL skills when performing the data cleaning and transformation tasks within the CRISP-DM process model for an Airbnb dataset of the city of Boston. The repository structure is:
 - `data`: Contains the raw dataset in csv format.
