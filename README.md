@@ -8,13 +8,13 @@ This project aims to show SQL skills when performing the data cleaning and trans
 ## How to use
 To reproduce the results, you can load the data dump file using the following command:
 
-`
+```
 -- Create new database with the standard PostgreSQL
 -- system catalogs, unmodified by any previous actions
 createdb -T template0 dbname
 
 -- Restore a dump file
 psql --set ON_ERROR_STOP=on dbname < dumpfile
-`
+```
 
 Or create the database and then running every script. You need to place the files in `data` on the temporary directory/folder of your operating system.
