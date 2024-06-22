@@ -1,6 +1,6 @@
 # Data cleaning & transformation
 
-![airbnb-logo](https://i.ibb.co/h9RwFNk/airbnb.png)
+![airbnb-logo](airbnb-logo.png)
 
 <a href="https://www.flaticon.com/free-icons/airbnb" title="airbnb icons">Airbnb icons created by riajulislam - Flaticon</a>
 
@@ -36,6 +36,9 @@ Produce high quality data for Airbnb listings from Boston, MA. This data could h
 I stored the data locally, then created a PostgreSQL database with multiple tables representing different elements of the data. Finally, I applied several techniques and methods to ensure data quality.
 
 ### **Highlights**
+The entire project is carried out using PostgreSQL, due to its capabilities.
+
+The database has been created through the use of SQL scripts representing CRISP-DM tasks. This favors reproducibility.
 
 
 <a id='introduction'></a>
